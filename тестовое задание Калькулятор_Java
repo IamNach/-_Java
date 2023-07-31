@@ -2,21 +2,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Scanner input = new Scanner(System.in); // Здесь создаётся переменная типа Сканнер для дальнейшего считывания с клавиатуры
+        Scanner scanner = new Scanner(System.in); // Здесь создаётся переменная типа Сканнер для дальнейшего считывания с клавиатуры
         System.out.println("Введите 2 числа от 1 до 10 (Римских или Арабских)"); // Здесь выводится условие для ввода с клавиатуры
-        String input2 = input.nextLine(); // Здесь строка для считывая вводимых символов с клавиатуры
-        System.out.println(parse(input2)); // Здесь метод окончательного результата вычислений или ошибка
+        String input = scanner.nextLine(); // Здесь строка для считывая вводимых символов с клавиатуры
+        System.out.println(parse(input)); // Здесь метод окончательного результата вычислений или ошибка
     }
-      public static String parse(String input2) throws Exception { //Здесь передаётся результат вычислений или исключений при неверном вводе
+      public static String parse(String input) throws Exception { //Здесь передаётся результат вычислений или исключений при неверном вводе
         int num1; //Переменная первого вводимого числа
         int num2; //Переменная второго вводимого числа
         String oper; //Строка с названием переменной для математического действия
         String result; //
         boolean isRoman;
-        String[] operands = input2.split("[+\\-*/]"); // Здесь проверка по условиям и математическим действиям
+        String[] operands = input.split("[+\\-*/]"); // Здесь проверка по условиям и математическим действиям
         if (operands.length ==1) throw new Exception("строка не является математической операцией");
         if (operands.length !=2) throw new Exception("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
-        oper = calculate(input2); //Переменная для математического действия
+        oper = calc(input); //Переменная для математического действия
 
 
         if (Roman.isRoman(operands[0]) && Roman.isRoman(operands[1])) { //В данном блоке проверка ввода римских чисел
@@ -54,11 +54,11 @@ public class Main {
         return result; //возвращаем результат
     }
 
-     public static String calculate(String input2) { //В данном блоке проверяется условие на вводимое математическое действие
-        if (input2.contains("+")) return "+";
-        else if (input2.contains("-")) return "-";
-        else if (input2.contains("*")) return "*";
-        else if (input2.contains("/")) return "/";
+     public static String calc(String input) { //В данном блоке проверяется условие на вводимое математическое действие
+        if (input.contains("+")) return "+";
+        else if (input.contains("-")) return "-";
+        else if (input.contains("*")) return "*";
+        else if (input.contains("/")) return "/";
         else return null;
     }
 
