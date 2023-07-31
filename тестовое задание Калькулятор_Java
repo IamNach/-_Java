@@ -44,7 +44,7 @@ public class Main {
           assert oper != null;
           int arabian = calc(num1, num2, oper); //
         if (isRoman) {
-            if (arabian < 0) {
+            if (arabian <= 0) {
                 throw new Exception("в римской системе нет отрицательных чисел");//если римское число получилось меньше либо равно нулю, генерируем ошибку
             }
             result = Roman.arabToRoman(arabian);//конвертируем результат операции из арабского в римское
