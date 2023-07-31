@@ -20,8 +20,8 @@ public class Main {
 
 
         if (Roman.isRoman(operands[0]) && Roman.isRoman(operands[1])) { //В данном блоке проверка ввода римских чисел
-            num1 = Roman.convertToArabian(operands[0]); //конвертируем оба числа в арабские
-            num2 = Roman.convertToArabian(operands[1]); //конвертируем оба числа в арабские
+            num1 = Roman.romanToArab(operands[0]); //конвертируем оба числа в арабские
+            num2 = Roman.romanToArab(operands[1]); //конвертируем оба числа в арабские
             isRoman = true;
         }
 
@@ -47,9 +47,9 @@ public class Main {
             if (arabian < 0) {
                 throw new Exception("в римской системе нет отрицательных чисел");//если римское число получилось меньше либо равно нулю, генерируем ошибку
             }
-            result = Roman.convertToRoman(arabian);//конвертируем результат операции из арабского в римское
+            result = Roman.arabToRoman(arabian);//конвертируем результат операции из арабского в римское
         } else {
-            result = String.valueOf(arabian);//Конвертируем арабское число в тип Римское
+            result = String.valueOf(arabian);//Конвертируем арабское число в тип String
         }
         return result; //возвращаем результат
     }
@@ -73,8 +73,8 @@ public class Main {
     }
 
     static class Roman { //Здесь создали класс Римских чисел
-        static String[] romanNumber = new String[]{
-                "I", "II", "III", "IV", "V", "Vi", "VII", "VIII", "IX", "X",
+        static String[] romanNumber = new String[]{"0",
+                "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
                 "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
                 "XXI","XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX",
                 "XXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX","XL",
@@ -94,7 +94,7 @@ public class Main {
             return false;
         }
 
-        public static int convertToArabian(String roman) {
+        public static int romanToArab(String roman) {
             for (int i = 0; i < romanNumber.length; i++)
                 if (roman.equals(romanNumber[i])) {
                     return i;
@@ -103,7 +103,7 @@ public class Main {
             return -1;
         }
 
-        static String convertToRoman(int arabian) {
+        static String arabToRoman(int arabian) {
             return romanNumber[arabian];
         }
     }
