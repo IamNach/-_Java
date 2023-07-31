@@ -51,7 +51,7 @@ public class Main {
         } else {
             result = String.valueOf(arabian);//Конвертируем арабское число в тип String
         }
-        return result; //возвращаем результат
+        return result; //Здесь результат вычисления и отправки результата в консоль
     }
 
      public static String calc(String input) { //В данном блоке проверяется условие на вводимое математическое действие
@@ -85,7 +85,7 @@ public class Main {
                 "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
 
-        public static boolean isRoman(String val) {
+        public static boolean isRoman(String val) { //Здесь условие для сравнения чисел
             for (String s : romanNumber) {
                 if (val.equals(s)) {
                     return true;
@@ -94,7 +94,7 @@ public class Main {
             return false;
         }
 
-        public static int romanToArab(String roman) {
+        public static int romanToArab(String roman) { // Блок бля перевода римского числа из массива в арабское для вычислений
             for (int i = 0; i < romanNumber.length; i++)
                 if (roman.equals(romanNumber[i])) {
                     return i;
@@ -103,7 +103,7 @@ public class Main {
             return -1;
         }
 
-        static String arabToRoman(int arabian) {
+        static String arabToRoman(int arabian) { // Блок для правильного отображения результата вычисления в римских цифрах
             return romanNumber[arabian];
         }
     }
