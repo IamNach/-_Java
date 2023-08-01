@@ -7,12 +7,12 @@ public class Main {
         String input = scanner.nextLine(); // Здесь строка для считывая вводимых символов с клавиатуры
         System.out.println(parse(input)); // Здесь метод окончательного результата вычислений или ошибка
     }
-      public static String parse(String input) throws Exception { //Здесь передаётся результат вычислений или исключений при неверном вводе
+    public static String parse(String input) throws Exception { //Здесь передаётся результат вычислений или исключений при неверном вводе
         int num1; //Переменная первого вводимого числа
         int num2; //Переменная второго вводимого числа
         String oper; //Строка с названием переменной для математического действия
         String result; //
-        boolean isRoman;
+        boolean isRoman; // Переменная для проверки правильного формата ввода числа
         String[] operands = input.split("[+\\-*/]"); // Здесь проверка по условиям и математическим действиям
         if (operands.length ==1) throw new Exception("строка не является математической операцией");
         if (operands.length !=2) throw new Exception("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
@@ -41,8 +41,8 @@ public class Main {
         if (num1 < 1 || num2 < 1) { //Проверка вводимых чисел от 1
             throw new Exception("Числа должны быть от 1 до 10");
         }
-          assert oper != null;
-          int arabian = calc(num1, num2, oper); //
+        assert oper != null;
+        int arabian = calc(num1, num2, oper); //
         if (isRoman) {
             if (arabian <= 0) {
                 throw new Exception("в римской системе нет отрицательных чисел");//если римское число получилось меньше либо равно нулю, генерируем ошибку
@@ -54,7 +54,7 @@ public class Main {
         return result; //Здесь результат вычисления и отправки результата в консоль
     }
 
-     public static String calc(String input) { //В данном блоке проверяется условие на вводимое математическое действие
+    public static String calc(String input) { //В данном блоке проверяется условие на вводимое математическое действие
         if (input.contains("+")) return "+";
         else if (input.contains("-")) return "-";
         else if (input.contains("*")) return "*";
@@ -99,7 +99,7 @@ public class Main {
                 if (roman.equals(romanNumber[i])) {
                     return i;
 
-            }
+                }
             return -1;
         }
 
@@ -107,4 +107,3 @@ public class Main {
             return romanNumber[arabian];
         }
     }
-}
